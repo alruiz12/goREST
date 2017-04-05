@@ -54,33 +54,5 @@ func SendMessage(IP string, port string, message string){
 	fmt.Println("Server: ",req.Status)
 }
 
-/*
-addTorrent is called when a POST requests 8080/addTorrent.
-Adds a new Torrent to the Tracker file of torrents.
-@param1 used by an HTTP handler to construct an HTTP response.
-@param2 represents HTTP request.
- */
-func addTorrent(w http.ResponseWriter, r *http.Request){
-
-}
-
-/*
-showTorrents is called when a GET requests 8080/addTorrent.
-Sends new json encoded torrent back to the sender
-@param1 used by an HTTP handler to construct an HTTP response.
-@param2 represents HTTP request
- */
-func showTorrents(w http.ResponseWriter,r *http.Request) {
-
-}
 
 
-/*
-upLoadFile is called when a POST requests 8080/upLoadFile.
-Allow peer to upload a file
-@param1 used by an HTTP handler to construct an HTTP response.
-@param2 represents HTTP request.
- */
-func upLoadFile(w http.ResponseWriter, r *http.Request) {
-
-}

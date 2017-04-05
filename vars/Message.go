@@ -1,4 +1,4 @@
-package server
+package vars
 /*
 Type Holding data about a message
 */

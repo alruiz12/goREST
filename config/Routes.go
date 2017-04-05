@@ -37,12 +37,12 @@ var routes = Routes{
 		"POST",
 		"/ListenMessage",
 		server.ListenMessage,
-	},/*
-	Route{
-		"showTorrents",
-		"GET",
-		"/addTorrent",
-		showTorrents,
 	},
-*/
+	Route{
+		"showMessages",
+		"GET",
+		"/showMessages",
+		server.ShowMessages,
+	},
+
 }
