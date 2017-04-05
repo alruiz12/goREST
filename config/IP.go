@@ -15,9 +15,6 @@ func GetMyIP(givenInterface string )string{
 		if iface.Flags & net.FlagUp == 0 {
 			continue //interface down
 		}
-		if iface.Flags & net.FlagLoopback != 0 {
-			continue //loopback interface
-		}
 		addrs, err := iface.Addrs()
 		if err != nil {
 			panic(err)
