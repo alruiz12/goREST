@@ -7,9 +7,7 @@ import (
 	"log"
 	"net/http"
 	"time"
-
 	"fmt"
-	//"strings"
 	"github.com/alruiz12/goREST/client"
 )
 

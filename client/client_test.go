@@ -2,14 +2,11 @@ package client
 
 import (
 	"testing"
-
 	"github.com/alruiz12/goREST/config"
 	"log"
 	"net/http"
 	"time"
-
 	"fmt"
-	//"strings"
 	"github.com/alruiz12/goREST/server"
 )
 

@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"log"
 	"github.com/alruiz12/goREST/config"
-
 	"github.com/alruiz12/goREST/server"
 )
 

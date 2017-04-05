@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"io/ioutil"
 	"io"
-
 	"github.com/alruiz12/goREST/vars"
 )
 
