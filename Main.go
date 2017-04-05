@@ -7,11 +7,12 @@ import (
 	"log"
 	"github.com/alruiz12/goREST/config"
 
+	"github.com/alruiz12/goREST/server"
 )
 
 func main() {
 
-	router := config.MyNewRouter()
+	router := server.NewServerRouter()
 	IP:=config.GetMyIP("lo")
 
 	// server starts listening

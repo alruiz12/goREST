@@ -1,8 +1,7 @@
-package config
+package client
 import (
 	"net/http"
 	"github.com/gorilla/mux"
-	"github.com/alruiz12/goREST/server"
 )
 
 type Route struct {
@@ -16,7 +15,7 @@ type Routes []Route
 /*
 Router using gorilla/mux
 */
-func MyNewRouter() *mux.Router {
+func NewClientRouter() *mux.Router {
 
 	router := mux.NewRouter().StrictSlash(true)
 
@@ -32,17 +31,6 @@ func MyNewRouter() *mux.Router {
 }
 
 var routes = Routes{
-	Route{
-		"ListenMessage",
-		"POST",
-		"/ListenMessage",
-		server.ListenMessage,
-	},
-	Route{
-		"showMessages",
-		"GET",
-		"/showMessages",
-		server.ShowMessages,
-	},
+
 
 }

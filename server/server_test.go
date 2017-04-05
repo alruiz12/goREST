@@ -1,4 +1,4 @@
-package client
+package server
 
 import (
 	"testing"
@@ -10,12 +10,13 @@ import (
 
 	"fmt"
 	//"strings"
-	"github.com/alruiz12/goREST/server"
+	"github.com/alruiz12/goREST/client"
 )
 
-func TestClient(t *testing.T) {
+func TestServer(t *testing.T) {
 
-	svRouter := server.NewServerRouter()
+
+	svRouter := NewServerRouter()
 	IP:=config.GetMyIP("lo")
 	fmt.Println(IP)
 	// server starts listening
@@ -31,12 +32,12 @@ func TestClient(t *testing.T) {
 	// client starts sending
 	go func() {
 		var quit = make(chan int)
-		StartSendingMessages(2,IP,"8888","hello!",quit)
+		client.StartSendingMessages(2,IP,"8888","hello!",quit)
 		time.AfterFunc(9 * time.Second, func() {close(quit)})
 	}()
 
 	// client starts listening
-	cliRouter := NewClientRouter()
+	cliRouter := NewServerRouter()
 	client:=&http.Server{Addr: ":8080", Handler:cliRouter}
 	go func() {
 		if err := client.ListenAndServe(); err!=nil{
