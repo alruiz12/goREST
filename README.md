@@ -31,7 +31,7 @@ var interval time.Duration=2
 var finishTime time.Duration=9
 ```
 
-* Modify the message you want to send to the server
+* Modify the message you want to send to the server:
 ```go
 message:="hello!"
 ```
