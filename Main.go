@@ -12,12 +12,13 @@ import (
 func main() {
 
 	router := server.NewServerRouter()
-	IP:=config.GetMyIP("lo")
+	serverIP:=config.GetMyIP("lo")
 	serverPort:="8888"
 	clientPort:="8080"
-	messsage:="hello!"
 	var interval time.Duration=2
 	var finishTime time.Duration=9
+	message:="hello!"
+
 
 	// server starts listening
 	go func() {
@@ -27,7 +28,7 @@ func main() {
 	// client starts sending
 	go func() {
 		var quit = make(chan int)
-		client.StartSendingMessages(interval,IP,serverPort,messsage,quit)
+		client.StartSendingMessages(interval,serverIP,serverPort,message,quit)
 		time.AfterFunc(finishTime * time.Second, func(){close(quit)})
 	}()
 
