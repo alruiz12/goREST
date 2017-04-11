@@ -15,6 +15,9 @@ func main() {
 	IP:=config.GetMyIP("lo")
 	serverPort:="8888"
 	clientPort:="8080"
+	messsage:="hello!"
+	var interval time.Duration=2
+	var finishTime time.Duration=9
 
 	// server starts listening
 	go func() {
@@ -24,8 +27,8 @@ func main() {
 	// client starts sending
 	go func() {
 		var quit = make(chan int)
-		client.StartSendingMessages(2,IP,serverPort,"hello!",quit)
-		time.AfterFunc(9 * time.Second, func(){close(quit)})
+		client.StartSendingMessages(interval,IP,serverPort,messsage,quit)
+		time.AfterFunc(finishTime * time.Second, func(){close(quit)})
 	}()
 
 	// client starts listening
