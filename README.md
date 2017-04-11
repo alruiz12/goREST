@@ -8,4 +8,7 @@ Golang simple library for message passing using REST
 
 ___
 ## How to use goREST
+Download Go and follow [the official guidelines for Code organization](https://golang.org/doc/code.html#Organization) 
+Clone or download the project
+
 
