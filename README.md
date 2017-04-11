@@ -14,9 +14,9 @@ ___
 
 * Find the Main.go file under the project root
 
-* Use your preferred network (loopback default): 
+* Use your preferred network interface (loopback default) or IP address for the server
 ```go
-IP:=config.GetMyIP("lo")
+serverIP:=config.GetMyIP("lo")
 ```
 
 * Change default ports if necessary:
