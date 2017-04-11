@@ -14,7 +14,7 @@ ___
 
 * Find the Main.go file under the project root
 
-* Use your preferred network interface (loopback default) or IP address for the server
+* Use your preferred network interface (loopback default) or IP address for the server:
 ```go
 serverIP:=config.GetMyIP("lo")
 ```
