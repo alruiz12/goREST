@@ -19,9 +19,14 @@ ___
 IP:=config.GetMyIP("lo")
 ```
 
-* Change default ports if necessary
+* Change default ports if necessary:
 ```go
 serverPort:="8888"
 clientPort:="8080"
 ```
 
+* Modify times at your convenience:
+```go
+var interval time.Duration=2
+var finishTime time.Duration=9
+```
