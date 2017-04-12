@@ -1,5 +1,5 @@
 # goREST
-Golang simple library for message passing using REST
+Golang simple library for message and file passing using REST
 
 
 [![Build Status](https://travis-ci.org/alruiz12/goREST.svg?branch=master)](https://travis-ci.org/alruiz12/goREST)
@@ -37,5 +37,12 @@ var finishTime time.Duration=9
 * Modify the message you want to send to the server:
 ```go
 message:="hello!"
+```
+
+* Select the path to the file you want to send from the client to the server
+
+_Note: filepath must start immediatly after GOPATH_
+```go
+filePath:="/src/github.com/alruiz12/goREST/FileToSend"
 ```
 
