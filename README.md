@@ -14,7 +14,7 @@ ___
 
 `go get github.com/alruiz12/goREST`
 
-* Do the same for Dependencies:
+* Do the same for dependencies:
 
 `go get github.com/gorilla/mux`
 
