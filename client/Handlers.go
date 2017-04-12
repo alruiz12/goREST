@@ -8,6 +8,11 @@ import (
 	"time"
 	"strings"
 	"errors"
+	"bytes"
+	"mime/multipart"
+	"log"
+	"os"
+	"path"
 )
 
 func StartSendingMessages(interval time.Duration, IP string, port string,message string, quit chan int){
@@ -53,6 +58,43 @@ func SendMessage(IP string, port string, message string){
 	}
 	fmt.Println("Server: ",req.Status)
 }
+
+
+func SendFile(filePath string, IP string, port string){
+	file, err := os.Open(os.Getenv("GOPATH")+filePath)
+	if err != nil {
+		fmt.Println("Opening file")
+		log.Println(err)
+	}
+	defer file.Close()
+	destinationURL:="http://"+IP+":"+port+"/upLoadFile"
+	fmt.Println(destinationURL)
+	body := &bytes.Buffer{}
+	writer := multipart.NewWriter(body)
+	part, err := writer.CreateFormFile("file", path.Base(filePath))
+	if err != nil {
+		fmt.Println("creating Form file")
+		log.Println(err)
+	}
+	_, err = io.Copy(part, file)
+	err=writer.Close()
+	if err != nil {
+		log.Println(err)
+	}
+	request, err := http.NewRequest("POST", destinationURL, body)
+	request.Header.Set("Content-Type", writer.FormDataContentType())
+	res, err := http.DefaultClient.Do(request)
+	if err != nil {
+		log.Println(err)
+	}
+	if res.StatusCode != 200 {
+		log.Println("Success expected: %d", res.StatusCode)
+	}
+
+
+}
+
+
 
 
 

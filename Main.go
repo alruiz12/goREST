@@ -32,6 +32,9 @@ func main() {
 		time.AfterFunc(finishTime * time.Second, func(){close(quit)})
 	}()
 
+	// client sends file
+	client.SendFile("/src/github.com/alruiz12/goREST/FileToSend",serverIP,serverPort)
+
 	// client starts listening
 	log.Fatal(http.ListenAndServe(":"+clientPort, router))
 }
