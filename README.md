@@ -11,6 +11,7 @@ ___
 * Download Go and follow [the official guidelines for Code organization](https://golang.org/doc/code.html#Organization) 
 
 * Clone, download the project or use go get:
+
 `go get github.com/alruiz12/goREST`
 
 * Find the Main.go file under the project root
