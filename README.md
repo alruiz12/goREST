@@ -41,7 +41,7 @@ message:="hello!"
 
 * Select the path to the file you want to send from the client to the server
 
-_Note: filepath must start immediatly after GOPATH_
+_Note: filepath must start immediatly after GOPATH and begin with a forward slash "/" (in Linux distributions)_
 ```go
 filePath:="/src/github.com/alruiz12/goREST/FileToSend"
 ```
