@@ -14,6 +14,10 @@ ___
 
 `go get github.com/alruiz12/goREST`
 
+* Do the same for Dependencies:
+`go get github.com/gorilla/mux`
+`go get github.com/gorilla/context`
+
 ## Get started with Main.go
 * Find the Main.go file under the project root
 
