@@ -14,6 +14,7 @@ ___
 
 `go get github.com/alruiz12/goREST`
 
+## Get started with Main.go
 * Find the Main.go file under the project root
 
 * Use your preferred network interface (loopback default) or IP address for the server:
