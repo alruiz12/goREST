@@ -18,7 +18,7 @@ func main() {
 	var interval time.Duration=2
 	var finishTime time.Duration=9
 	message:="hello!"
-
+	filePath:="/src/github.com/alruiz12/goREST/FileToSend"
 
 	// server starts listening
 	go func() {
@@ -33,7 +33,7 @@ func main() {
 	}()
 
 	// client sends file
-	client.SendFile("/src/github.com/alruiz12/goREST/FileToSend",serverIP,serverPort)
+	client.SendFile(filePath,serverIP,serverPort)
 
 	// client starts listening
 	log.Fatal(http.ListenAndServe(":"+clientPort, router))
