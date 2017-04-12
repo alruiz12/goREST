@@ -45,4 +45,5 @@ _Note: filepath must start immediatly after GOPATH and begin with a forward slas
 ```go
 filePath:="/src/github.com/alruiz12/goREST/FileToSend"
 ```
+_You will find the received file under the receivedFiles directory _
 
