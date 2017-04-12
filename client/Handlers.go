@@ -67,7 +67,7 @@ func SendFile(filePath string, IP string, port string){
 		log.Println(err)
 	}
 	defer file.Close()
-	destinationURL:="http://"+IP+":"+port+"/upLoadFile"
+	destinationURL:="http://"+IP+":"+port+"/receiveFile"
 	fmt.Println(destinationURL)
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)

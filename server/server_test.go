@@ -9,6 +9,7 @@ import (
 	"time"
 	"fmt"
 	"github.com/alruiz12/goREST/client"
+	"os"
 )
 
 func TestServer(t *testing.T) {
@@ -36,9 +37,9 @@ func TestServer(t *testing.T) {
 
 	// client starts listening
 	cliRouter := NewServerRouter()
-	client:=&http.Server{Addr: ":8080", Handler:cliRouter}
+	Client:=&http.Server{Addr: ":8080", Handler:cliRouter}
 	go func() {
-		if err := client.ListenAndServe(); err!=nil{
+		if err := Client.ListenAndServe(); err!=nil{
 			log.Printf("ListenAndServe error", err)
 		}
 	}()
@@ -56,13 +57,21 @@ func TestServer(t *testing.T) {
 		t.Error("Failure expected: %d", res.StatusCode)
 	}
 
+	client.SendFile("/src/github.com/alruiz12/goREST/FileToSend","127.0.0.1","8888")
+	time.Sleep(1*time.Second)
+	if _,err:= os.Stat(os.Getenv("GOPATH")+"/src/github.com/alruiz12/goREST/receivedFiles/FileToSend");err==nil{
+		fmt.Println("File exists")
+	}else{t.Error("Expected file ",err)}
+	if _,err:= os.Stat(os.Getenv("GOPATH")+"/src/github.com/alruiz12/goREST/receivedFiles/NonExistingFile");err==nil{
+		t.Error("No Expected file ",err)
 
+	}else{fmt.Println("File doesn't exist")}
 
 	time.AfterFunc(19 * time.Second, func(){
 		if err:= srv.Shutdown(nil); err!=nil{
 			panic(err)
 		}
-		if err:= client.Shutdown(nil); err!=nil{
+		if err:= Client.Shutdown(nil); err!=nil{
 			panic(err)
 		}
 	})

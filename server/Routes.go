@@ -18,7 +18,7 @@ Router using gorilla/mux
 func NewServerRouter() *mux.Router {
 
 	router := mux.NewRouter().StrictSlash(true)
-
+	router.HandleFunc("/receiveFile", receiveFile)
 	for _, route := range routes {
 		router.
 			Methods(route.Method).

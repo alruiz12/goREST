@@ -8,6 +8,8 @@ import (
 	"time"
 	"fmt"
 	"github.com/alruiz12/goREST/server"
+	//"os"
+	"os"
 )
 
 func TestClient(t *testing.T) {
@@ -53,6 +55,17 @@ func TestClient(t *testing.T) {
 	if res.StatusCode != 200 {
 		t.Error("Failure expected: %d", res.StatusCode)
 	}
+
+
+	SendFile("/src/github.com/alruiz12/goREST/FileToSend","127.0.0.1","8888")
+	time.Sleep(1*time.Second)
+	if _,err:= os.Stat(os.Getenv("GOPATH")+"/src/github.com/alruiz12/goREST/receivedFiles/FileToSend");err==nil{
+		fmt.Println("File exists")
+	}else{t.Error("Expected file ",err)}
+	if _,err:= os.Stat(os.Getenv("GOPATH")+"/src/github.com/alruiz12/goREST/receivedFiles/NonExistingFile");err==nil{
+		t.Error("No Expected file ",err)
+
+	}else{fmt.Println("File doesn't exist")}
 
 
 

@@ -67,6 +67,7 @@ func receiveFile(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost{
 		f, header, err := r.FormFile("file")
 		if err != nil {
+			fmt.Println("Error opening form file")
 			log.Println(err)
 			http.Error(w, "Error uploading file", 404)
 			return
