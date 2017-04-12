@@ -7,11 +7,14 @@ Golang simple library for message passing using REST
 [![Code Health](https://landscape.io/github/alruiz12/goREST/master/landscape.svg?style=flat)](https://landscape.io/github/alruiz12/goREST/master)
 
 ___
-## How to use goREST
+## Install
 * Download Go and follow [the official guidelines for Code organization](https://golang.org/doc/code.html#Organization) 
 
-* Clone or download the project
+* Clone, download the project or use go get:
 
+`go get github.com/alruiz12/goREST`
+
+## Get started with Main.go
 * Find the Main.go file under the project root
 
 * Use your preferred network interface (loopback default) or IP address for the server:
@@ -31,7 +34,7 @@ var interval time.Duration=2
 var finishTime time.Duration=9
 ```
 
-* Modify the message you want to send to the server
+* Modify the message you want to send to the server:
 ```go
 message:="hello!"
 ```
